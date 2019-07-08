@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h1>Bu `{{ todo.title }}` obyekti silmek istediyinize eminsinizmi?</h1>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Silmek</button>
+                <a href="{% url 'home' %}" class="btn btn-success">Imtina etmek</a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="email">{{ field.label }}:</label>
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-success">Yadda saxla</button>
+                    <a href="{% url 'home' %}" class="btn btn-danger">Imtina et </a>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>My Todo Application</h1>
+        <div class="row">
+            <div class="col-4 mx-auto">
+                <form>
+                    <form method="get">
+
+
+                    <div class="form-group">
+                        <label for="search">Search </label>
+                        <input type="text" class="form-control" value="{{ request.GET.search }}" name="search" id="search">
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Axtaris</button>
+<!--                    <a href="{% url 'create_todo' %}" class="btn btn-primary"> Create</a>-->
+                    <a href="{% url 'create_todo' %}" class="btn btn-primary">Create todo</a>
+                </form>
+                    </form>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mx-auto">
+                <ul class="list-group">
+                    {% for todo in todo_list %}
+                    <li class="list-group-item">{{ todo.title  }}
+            <a href="{% url 'update-todo' todo.id %}" class="btn btn-success float-right mr-1">Update</a>
+                       <a href="{% url 'delete-todo' todo.id %}" class="btn btn-danger float-right">Delete</a>
+                       <a href="{% url 'show-todo' todo.id %}" class="btn btn-primary float-right">Show</a>
+
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

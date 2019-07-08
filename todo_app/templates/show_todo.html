@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+
+{% block body %}
+    <div class="row">
+        <div class="col-4 mx-auto">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ todo.title }}</h5>
+                    <p class="card-text">{{ todo.description }}</p>
+                    <a href="{% url 'home' %}" class="btn btn-danger">Geri qayit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
